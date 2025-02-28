@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityHub | User Dashboard</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/88/3f/17/883f17b595218e3e8a681013ee3c1654.jpg" type="image/png">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #B3D8A8, #FBFFE4);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3D8D7A;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #3D8D7A;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3D8D7A;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #A3D1C6;
+        }
+
+        button {
+            background-color: #3D8D7A;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #A3D1C6;
+        }
+
+        footer {
+            background-color: #3D8D7A;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <h1>CommunityHub</h1>
+    </header>
+
+    <div class="container">
+        <h1>User Information Dashboard</h1>
+
+        <form action="/users/new" method="get">
+            <p>Want to be part of our community?</p>
+            <button>Join Now</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% for(let u of record){ %>
+            <tr>
+                <td><%= u.id %></td>
+                <td><%= u.username %></td>
+                <td><%= u.email %></td>
+                <td>
+                    <form action="/users/<%= u.id %>/edit">
+                        <button>Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/users/<%= u.id %>?_method=DELETE" method="post">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2025 CommunityHub | All Rights Reserved
+    </footer>
+
+</body>
+</html>

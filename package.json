@@ -1,0 +1,20 @@
+{
+  "name": "userinfo-project",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "khushboo",
+  "type": "commonjs",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.5.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.12.0",
+    "uuid": "^11.1.0"
+  }
+}
